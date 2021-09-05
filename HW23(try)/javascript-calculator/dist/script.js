@@ -4,33 +4,38 @@ class Calculator{
     this.oldNum = "";
     this.resultNum;
     this.operator;
+    this.nums = Calculator.el(".num");
+    this.viewer = Calculator.el("#viewer");
+    this.equals = Calculator.el("#equals");
+    this.ops = Calculator.el(".ops");
+    this.clearBtn = Calculator.el("#clear");
+    this.calculator = Calculator.el('#calculator');
+    this.resetBtn = Calculator.el('#reset');
   }
-  static el(element){
+  static el = (element) => {
     if (element.charAt(0) === "#") {
       return document.querySelector(element); 
     }
     return document.querySelectorAll(element); 
   }
-  setNum(num){
-   
+  setNum = () => {
     if (this.resultNum) {  
-      this.theNum = num.getAttribute("data-num");
-      
+      this.theNum = event.target.getAttribute("data-num");
       this.resultNum = ""; 
     } else { 
-      this.theNum += num.getAttribute("data-num");
-       
+      this.theNum += event.target.getAttribute("data-num");
     }
-    viewer.innerHTML = this.theNum;
+    this.viewer.innerHTML = this.theNum;
   }
-  moveNum(num) { 
+  moveNum = () => { 
     this.oldNum = this.theNum;
-    this.theNum = "";
-    this.operator = num.getAttribute("data-ops");
 
-    equals.setAttribute("data-result", ""); 
+    this.theNum = "";
+    this.operator = event.target.getAttribute("data-ops");
+
+    this.equals.setAttribute("data-result", ""); 
   }; 
-  displayNum() {
+  displayNum = () => {
 
     this.oldNum = parseFloat(this.oldNum);
     this.theNum = parseFloat(this.theNum);
@@ -60,47 +65,41 @@ class Calculator{
         this.resultNum = "You broke it!";
       } else { 
         this.resultNum = "Look at what you've done";
-        calculator.classList.add("broken"); 
-        resetBtn.classList.add("show"); 
+        this.calculator.classList.add("broken"); 
+        this.resetBtn.classList.add("show"); 
       }
     }
 
-    viewer.innerHTML = this.resultNum;
-    equals.setAttribute("data-result", this.resultNum);
+    this.viewer.innerHTML = this.resultNum;
+    this.equals.setAttribute("data-result", this.resultNum);
     this.oldNum = 0;
     this.theNum = this.resultNum;
    }
 
-   clearAll() {
+   clearAll = () => {
     this.oldNum = "";
     this.theNum = "";
-    viewer.innerHTML = "0";
-    equals.setAttribute("data-result", this.resultNum);
+    this.viewer.innerHTML = "0";
+    this.equals.setAttribute("data-result", this.resultNum);
     
    }
 
-  init(){
-    for (let i = 0; i < nums.length; i++) {
-      nums[i].addEventListener("click",this.setNum.bind(this, nums[i]));
+  init = () => {
+    for (let i = 0; i < this.nums.length; i++) {
+      this.nums[i].addEventListener("click",this.setNum);
     } 
  
-     for (let b = 0; b < ops.length; b++) {
-      ops[b].addEventListener("click",this.moveNum.bind(this, ops[b]));
+     for (let b = 0; b < this.ops.length; b++) {
+      this.ops[b].addEventListener("click",this.moveNum);
     } 
 
-    equals.addEventListener("click", this.displayNum.bind(this, equals));
+    this.equals.addEventListener("click", this.displayNum);
 
-    clearBtn.addEventListener("click", this.clearAll.bind(this));
+    this.clearBtn.addEventListener("click", this.clearAll);
   }
 }
 
-const nums = Calculator.el(".num");
-const viewer = Calculator.el("#viewer");
-const equals = Calculator.el("#equals");
-const ops = Calculator.el(".ops");
-const clearBtn = Calculator.el("#clear");
-const calculator = Calculator.el('#calculator');
-const resetBtn = Calculator.el('#reset');
+
 
 let newCalc = new Calculator();
 
