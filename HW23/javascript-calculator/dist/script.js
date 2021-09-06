@@ -85,12 +85,12 @@ class Calculator{
 
   init = () => {
     for (let i = 0; i < this.nums.length; i++) {
-      this.nums[i].addEventListener("click",this.setNum.bind(this.nums[i]));
+      this.nums[i].addEventListener("click",this.setNum);
       
     } 
  
      for (let b = 0; b < this.ops.length; b++) {
-      this.ops[b].addEventListener("click",this.moveNum.bind(this.ops[b]));
+      this.ops[b].addEventListener("click",this.moveNum);
     } 
 
     this.equals.addEventListener("click", this.displayNum);
@@ -104,7 +104,7 @@ class Calculator{
 
 let newCalc = new Calculator();
 
-document.addEventListener("DOMContentLoaded", newCalc.init.bind(newCalc));
+document.addEventListener("DOMContentLoaded", newCalc.init());
     
       
 
