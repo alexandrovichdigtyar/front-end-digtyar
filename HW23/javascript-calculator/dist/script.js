@@ -29,7 +29,6 @@ class Calculator{
     
   }
   moveNum = (event) => { 
-    //console.log(event.target)
     this.oldNum = this.theNum;
     this.theNum = "";
     this.operator = event.target.getAttribute("data-ops");
@@ -94,7 +93,6 @@ class Calculator{
     } 
 
     this.equals.addEventListener("click", this.displayNum);
-    //console.log(this)
 
     this.clearBtn.addEventListener("click", this.clearAll);
   }
