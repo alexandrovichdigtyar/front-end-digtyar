@@ -107,9 +107,8 @@ document.addEventListener("DOMContentLoaded", newCalc.init());
       
 
 
-
 //--------------------------------------
-/* const countTotal = () => ({total: 100});
+/*  const countTotal = () => ({total: 100});
 console.log(countTotal());
 
 const result = `Today is ${new Date}`
@@ -117,4 +116,12 @@ console.log(result);
 
 
 let a = 5; let b = 10;
-   console.log(({a:b, b:a})) */
+   console.log(({a:b, b:a})) 
+
+let a = 2;
+let b = 3;
+
+[a, b] = [b, a];
+
+console.log(a);
+console.log(b); */
