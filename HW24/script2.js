@@ -58,11 +58,10 @@ function onTileClick(e) {
     const id = +e.target.textContent;
     if (id) {
       swapTiles(id);
-      score.textContent = `Score: ${counter += 1}`;
     }
   }
   renderTiles();
-  chekEndGame(TILES)
+  chekEndGame(TILES);
 }
 
 function swapTiles(id) {
@@ -77,6 +76,7 @@ function swapTiles(id) {
     const temp = TILES[tileX][tileY];
     TILES[tileX][tileY] = TILES[emptyX][emptyY];
     TILES[emptyX][emptyY] = temp;
+    score.textContent = `Score: ${counter += 1}`;
   }
 }
 
@@ -88,6 +88,7 @@ function findEmptyTileCoords() {
       }
     }
   }
+  
 }
 
 function findTileCoordById(id) {
@@ -98,6 +99,7 @@ function findTileCoordById(id) {
       }
     }
   }
+  
 }
 
 function createCounter(){
@@ -131,11 +133,11 @@ function chekEndGame(TILES){
     for(let j = i+1; j < newArr.length; j++){
       if(newArr[i] > newArr[j]){
         counterNums++;
+        }
       }
-      //console.log(newArr[i] , newArr[j])
-    }
     }
     if(counterNums %2 !== 0){
       getRandomIndex()
       counterNums = 0;
-  }}
+  }
+}
