@@ -134,9 +134,8 @@ function chekEndGame(TILES){
       }
       //console.log(newArr[i] , newArr[j])
     }
-    //console.log(counter2)
+    }
     if(counterNums %2 !== 0){
       getRandomIndex()
       counterNums = 0;
-    }
   }}
