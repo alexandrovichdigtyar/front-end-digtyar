@@ -1,0 +1,65 @@
+.body {
+	font-family: 'Times New Roman', Times, serif;
+	font-style: normal;
+	background-color: #f7f0f5;
+}
+
+.page {
+	padding: 50px 30px;
+	background-color:#fff;
+	border-radius: 10%;
+	width: 400px;
+}
+
+.page__heading {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	margin-bottom: 30px;
+}
+
+.page__heading-text {
+	margin: 0px;
+}
+
+.page__btn-calculate {
+	font-size: 20px;
+	background-color: #d52f6f;
+	border: none;
+	border-radius: 10px;
+	padding: 5px 10px;
+	color: #fff;
+}
+
+.page__price {
+	color: #367a3d;
+	font-size: 50px;
+	margin: 0px;
+	margin-bottom: 50px;
+}
+
+.page__trade-currency__item {
+	display: flex;
+	justify-content: space-between;
+	color: #575a68;
+	margin-bottom: 20px;
+}
+
+.page__trade-currency {
+	background-color: #f7f8fa;
+	height: 100px;
+	border-radius: 15px;
+	padding: 10px 20px;
+	font-size: 30px;
+}
+
+.page__trade-currency__img {
+	width: 30px;
+	height: 30px;
+	margin-right: 5px;
+}
+
+.trade-currency__valute {
+	display: flex;
+	align-items: center;
+}
